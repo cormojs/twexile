@@ -1,6 +1,8 @@
 # Twexile for Mastodon
 ## Concept
-Mastodonへの投稿をTwitterに投げるWebアプリ
+Mastodonへの投稿をTwitterに投げるWebアプリ。近日中に [なゆかな](https://nayukana.info) にて公開予定。
+Web app which subscribe your Mastodon and post them to your twitter.
+Twexile will be available at [NAYUKANA](https://nayukana.info) soon.
 
 ## How to use
 1. twitter4j.propertiesを作成しConsumer Key & SecretおよびAccess Token & Secretの設定をする
