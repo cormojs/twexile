@@ -1750,13 +1750,13 @@ trait Tables {
   /** Collection-like TableQuery object for table WebSettings */
   lazy val WebSettings = new TableQuery(tag => new WebSettings(tag))
 
-  case class TwexileTokensRow(id: Long, hash: String, mastodonToken: String, twitterAccessToken: Option[String], twitterAccessSecret: Option[String], twitterRequestToken: Option[String], twitterRequestTokenSecret: Option[String])
+  case class TwexileTokensRow(id: Long, hash: String, resourceOwnerId: Long, twitterAccessToken: Option[String], twitterAccessSecret: Option[String], twitterRequestToken: Option[String], twitterRequestTokenSecret: Option[String])
 
   class TwexileTokens(_tableTag: Tag) extends profile.api.Table[TwexileTokensRow](_tableTag, "twexile_tokens") {
-    def * = (id, hash, mastodonToken, twitterAccessToken, twitterAccessSecret, twitterRequestToken, twitterRequestTokenSecret) <> (TwexileTokensRow.tupled, TwexileTokensRow.unapply)
+    def * = (id, hash, resourceOwnerId, twitterAccessToken, twitterAccessSecret, twitterRequestToken, twitterRequestTokenSecret) <> (TwexileTokensRow.tupled, TwexileTokensRow.unapply)
     val id: Rep[Long] = column[Long]("id", O.AutoInc, O.PrimaryKey)
     val hash: Rep[String] = column[String]("hash")
-    val mastodonToken: Rep[String] = column[String]("mastodon_token")
+    val resourceOwnerId: Rep[Long] = column[Long]("resource_owner_id")
     val twitterAccessToken: Rep[Option[String]] = column[Option[String]]("twitter_access_token")
     val twitterAccessSecret: Rep[Option[String]] = column[Option[String]]("twitter_access_secret")
     val twitterRequestToken: Rep[Option[String]] = column[Option[String]]("twitter_request_token")
